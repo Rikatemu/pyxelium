@@ -16,8 +16,8 @@ mod tests {
         assert!(!encoded_image.is_empty());
 
         // Verify that the encoded image has the correct dimensions
-        let expected_width = 20;
-        let expected_height = 20;
+        let expected_width = 15;
+        let expected_height = 15;
         assert_eq!(encoded_image.width(), expected_width);
         assert_eq!(encoded_image.height(), expected_height);
 

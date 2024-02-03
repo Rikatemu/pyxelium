@@ -1,13 +1,12 @@
 # Pyxelium [![Rust](https://github.com/Rikatemu/pyxelium/actions/workflows/rust.yml/badge.svg?branch=main)](https://github.com/Rikatemu/pyxelium/actions/workflows/rust.yml)
 
-![Screenshot](how_are_you.png)
 ![Screenshot](hello_world.png)
 ![Screenshot](lorem_ipsum.png)
 
 > [!WARNING]  
 > For now newer versions are possible to be incompatible with older versions, due to changes in the encoding algorithm!
 
-Pyxelium is a lightweight pixel-based encryption library that allows you to encode and decode messages within PNG images. It provides Rust functions for encoding and decoding messages using pixel-based encryption.
+Pyxelium is a lightweight pixel-based encryption library that allows you to encode and decode messages within PNG images.
 
 Why? I have no idea, but if you find any good reason to use this project, let me know!
 
@@ -15,7 +14,6 @@ Why? I have no idea, but if you find any good reason to use this project, let me
 
 - Encode text messages into images.
 - Decode hidden messages from images.
-- Secure and robust pixel-based encryption.
 
 ## Usage
 
@@ -24,7 +22,7 @@ Why? I have no idea, but if you find any good reason to use this project, let me
 To encode a message into an image using Pyxelium, use the following Rust function:
 
 ```rust
-use image::{ImageBuffer, Rgba, RgbaImage};
+use image::{Rgba, RgbaImage};
 use pyxelium::string_to_pixels;
 
 fn main() {
@@ -34,7 +32,8 @@ fn main() {
     
     let encoded_image: RgbaImage = string_to_pixels(message, pixel_size, base_color);
     
-    // You can now use `encoded_image` for further processing or display.
+    // Save the image into a file
+    encoded_image.save("encoded_image.png").unwrap();
 }
 ```
 
@@ -45,11 +44,11 @@ This function will encode your message into an RgbaImage object.
 To decode a message from an image using Pyxelium, use the following Rust function:
 
 ```rust
-use image::{RgbaImage, io::Reader as ImageReader};
+use image::{io::Reader as ImageReader, Rgba};
 use pyxelium::decode_pixels_to_string;
 
 fn main() {
-    let image_path = "image.png";
+    let image_path = "encoded_image.png";
     let pixel_size = 5;
     let base_color = Rgba([128, 128, 128, 255]);
     
@@ -75,7 +74,7 @@ Replace "image.png" with the path to the image you want to decode. The decoded m
 1. Add Pyxelium as a dependency to your Cargo.toml:
 ```toml
 [dependencies]
-pyxelium = "0.1.0"
+pyxelium = "0.0.4"
 ```
 
 2. Import the necessary modules and use the functions as shown in the usage examples above.
