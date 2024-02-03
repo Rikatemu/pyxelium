@@ -1,6 +1,8 @@
 # Pyxelium [![Rust](https://github.com/Rikatemu/pyxelium/actions/workflows/rust.yml/badge.svg?branch=main)](https://github.com/Rikatemu/pyxelium/actions/workflows/rust.yml)
 
-![Screenshot](encoded_image.png)
+![Screenshot](hello_world.png)
+![Screenshot](how_are_you.png)
+![Screenshot](lorem_ipsum.png)
 
 Pyxelium is a lightweight pixel-based encryption library that allows you to encode and decode messages within PNG images. It provides Rust functions for encoding and decoding messages using pixel-based encryption.
 
