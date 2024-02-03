@@ -1,7 +1,7 @@
 # Pyxelium [![Rust](https://github.com/Rikatemu/pyxelium/actions/workflows/rust.yml/badge.svg?branch=main)](https://github.com/Rikatemu/pyxelium/actions/workflows/rust.yml)
 
-![Screenshot](hello_world.png)
 ![Screenshot](how_are_you.png)
+![Screenshot](hello_world.png)
 ![Screenshot](lorem_ipsum.png)
 
 > [!WARNING]  
