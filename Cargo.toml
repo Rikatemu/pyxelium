@@ -2,7 +2,7 @@
 name = "pyxelium"
 version = "0.0.1"
 edition = "2021"
-description = "Pixelithos is a lightweight pixel-based encryption tool that allows you to encode and decode messages within PNG images. It provides a command-line interface (CLI) for encoding and decoding messages using pixel-based encryption."
+description = "Pyxelium is a lightweight pixel-based encryption library that allows you to encode and decode messages within PNG images. It provides Rust functions for encoding and decoding messages using pixel-based encryption."
 repository = "https://github.com/Rikatemu/pyxelium"
 keywords = ["image", "encoding", "decoding", "message"]
 license = "MIT"
