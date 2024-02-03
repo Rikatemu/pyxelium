@@ -3,6 +3,7 @@
 ![Screenshot](encoded_image.png)
 
 Pyxelium is a lightweight pixel-based encryption library that allows you to encode and decode messages within PNG images. It provides Rust functions for encoding and decoding messages using pixel-based encryption.
+
 Why? I have no idea, but if you find any good reason to use this project, let me know!
 
 ## Features
