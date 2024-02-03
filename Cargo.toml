@@ -1,6 +1,6 @@
 [package]
 name = "pyxelium"
-version = "0.0.2"
+version = "0.0.3"
 edition = "2021"
 description = "Pyxelium is a lightweight pixel-based encryption library that allows you to encode and decode messages within PNG images. It provides Rust functions for encoding and decoding messages using pixel-based encryption."
 repository = "https://github.com/Rikatemu/pyxelium"
