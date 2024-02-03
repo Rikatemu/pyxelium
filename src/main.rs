@@ -1,7 +1,7 @@
 use image::{ImageBuffer, Rgba, io::Reader as ImageReader};
 use std::env;
 
-const BASE_COLOR : Rgba<u8> = Rgba([153, 51, 255, 255]);
+const BASE_COLOR : Rgba<u8> = Rgba([102, 0, 204, 255]);
 
 fn main() {
     let args: Vec<String> = env::args().collect();
