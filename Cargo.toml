@@ -1,10 +1,24 @@
 [package]
-name = "prysmimg"
-version = "0.1.0"
+name = "pyxelium"
+version = "0.0.1"
 edition = "2021"
+description = "Pixelithos is a lightweight pixel-based encryption tool that allows you to encode and decode messages within PNG images. It provides a command-line interface (CLI) for encoding and decoding messages using pixel-based encryption."
+repository = "https://github.com/Rikatemu/pyxelium"
+keywords = ["image", "encoding", "decoding", "message"]
+license = "MIT"
+authors = ["Jaroslav 'Rikatemu' Patočka"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "pyxelium"
+path = "src/lib.rs"
+
+[[test]]
+name = "integration"
+path = "tests/tests.rs"
 
 [dependencies]
 image = "0.24.8"
 rand = "0.8.5"
+
+[package.metadata.docs.rs]
+features = ["default"]
