@@ -179,6 +179,28 @@ fn add_with_overflow(base: u8, add: u8) -> (u8, u8) {
     }
 }
 
+#[test]
+fn test_count_overflow_pixels() {
+    let case1_chunks = vec![vec![0, 0, 0],
+                            vec![0, 0, 0],
+                            vec![0, 0, 0]];
+    let case1_base = Rgba([0, 0, 0, 255]);
+
+    let case2_chunks = vec![vec![255, 255, 255],
+                            vec![255, 255, 255],
+                            vec![255, 255, 255]];
+    let case2_base = Rgba([255, 255, 255, 255]);
+
+    let case3_chunks = vec![vec![100, 200, 200],
+                            vec![100, 100, 100],
+                            vec![200, 100, 200]];
+    let case3_base = Rgba([200, 100, 100, 255]);
+
+    assert_eq!(count_overflow_pixels(&case1_chunks, case1_base), 0);
+    assert_eq!(count_overflow_pixels(&case2_chunks, case2_base), 9);
+    assert_eq!(count_overflow_pixels(&case3_chunks, case3_base), 6);
+}
+
 /// Helper function that calculates the required overflow pixles.
 fn count_overflow_pixels(chunks: &Vec<Vec<u8>>, base_color: Rgba<u8>) -> u32 {
     let mut count: u32 = 0;
