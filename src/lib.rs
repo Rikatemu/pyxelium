@@ -46,7 +46,7 @@ pub fn string_to_pixels(
     let num_pixels = chunks.len() as u32;
     // Estimate additional space for overflow pixels. Assuming worst case: every pixel overflows.
     // Plus one more pixel for the separator and a rough estimate for overflow pixels.
-    let estimated_overflow_pixels = num_pixels / 3; // Estimate 1 overflow pixel per 3 regular pixels
+    let estimated_overflow_pixels = count_overflow_pixels(&chunks, base_color);
     let total_pixels = num_pixels + estimated_overflow_pixels + 1; // +1 for the 0,0,0,0 separator pixel
     let img_size = ((total_pixels as f32).sqrt().ceil() as u32) * pixel_size;
     let mut imgbuf: RgbaImage = ImageBuffer::new(img_size, img_size);
@@ -112,6 +112,21 @@ fn add_with_overflow(base: u8, add: u8) -> (u8, u8) {
     } else {
         (sum as u8, 0)
     }
+}
+
+/// Helper function that calculates the required overflow pixles.
+fn count_overflow_pixels(chunks: &Vec<Vec<u8>>, base_color: Rgba<u8>) -> u32 {
+    let mut count: u32 = 0;
+
+    for chunk in chunks {
+        for i in 0..3 {
+            if chunk[i] as u16 + base_color[i] as u16 > 255 {
+                count += 1;
+            }
+        }
+    }
+
+    count
 }
 
 /// Decodes an image into a string message.
