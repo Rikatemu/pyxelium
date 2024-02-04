@@ -180,7 +180,7 @@ fn add_with_overflow(base: u8, add: u8) -> (u8, u8) {
 }
 
 /// Helper function that calculates the required overflow pixles.
-fn count_overflow_pixels(chunks: &Vec<Vec<u8>>, base_color: Rgba<u8>) -> u32 {
+pub fn count_overflow_pixels(chunks: &Vec<Vec<u8>>, base_color: Rgba<u8>) -> u32 {
     let mut count: u32 = 0;
 
     for chunk in chunks {
