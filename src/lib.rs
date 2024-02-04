@@ -44,6 +44,7 @@ pub fn string_to_pixels(
     }
 
     let num_pixels = chunks.len() as u32;
+
     // Estimate additional space for overflow pixels. Assuming worst case: every pixel overflows.
     // Plus one more pixel for the separator and a rough estimate for overflow pixels.
     let estimated_overflow_pixels = count_overflow_pixels(&chunks, base_color);
@@ -102,31 +103,6 @@ pub fn string_to_pixels(
     }
 
     imgbuf
-}
-
-/// Helper function for adding two u8s and handling overflow.
-fn add_with_overflow(base: u8, add: u8) -> (u8, u8) {
-    let sum = base as u16 + add as u16;
-    if sum > 255 {
-        (255, (sum - 255) as u8)
-    } else {
-        (sum as u8, 0)
-    }
-}
-
-/// Helper function that calculates the required overflow pixles.
-fn count_overflow_pixels(chunks: &Vec<Vec<u8>>, base_color: Rgba<u8>) -> u32 {
-    let mut count: u32 = 0;
-
-    for chunk in chunks {
-        for i in 0..3 {
-            if chunk[i] as u16 + base_color[i] as u16 > 255 {
-                count += 1;
-            }
-        }
-    }
-
-    count
 }
 
 /// Decodes an image into a string message.
@@ -191,4 +167,29 @@ pub fn decode_pixels_to_string(
     }
 
     String::from_utf8(bytes)
+}
+
+/// Helper function for adding two u8s and handling overflow.
+fn add_with_overflow(base: u8, add: u8) -> (u8, u8) {
+    let sum = base as u16 + add as u16;
+    if sum > 255 {
+        (255, (sum - 255) as u8)
+    } else {
+        (sum as u8, 0)
+    }
+}
+
+/// Helper function that calculates the required overflow pixles.
+fn count_overflow_pixels(chunks: &Vec<Vec<u8>>, base_color: Rgba<u8>) -> u32 {
+    let mut count: u32 = 0;
+
+    for chunk in chunks {
+        for i in 0..3 {
+            if chunk[i] as u16 + base_color[i] as u16 > 255 {
+                count += 1;
+            }
+        }
+    }
+
+    count
 }
