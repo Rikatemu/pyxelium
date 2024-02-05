@@ -74,7 +74,7 @@ Replace "image.png" with the path to the image you want to decode. The decoded m
 1. Add Pyxelium as a dependency to your Cargo.toml:
 ```toml
 [dependencies]
-pyxelium = "0.0.5"
+pyxelium = "0.0.6"
 ```
 
 2. Import the necessary modules and use the functions as shown in the usage examples above.
