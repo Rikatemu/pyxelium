@@ -3,6 +3,9 @@
 ![Screenshot](hello_world.png)
 ![Screenshot](lorem_ipsum.png)
 
+> [!CAUTION]  
+> Currently the algorithm is very easy to decode using brute force and you should not use it in any production environment until a more secure encryption is implemented!
+
 > [!WARNING]  
 > For now newer versions are possible to be incompatible with older versions, due to changes in the encoding algorithm!
 
